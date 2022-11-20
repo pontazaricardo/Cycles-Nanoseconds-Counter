@@ -66,3 +66,45 @@ If you want to check what it is happening in the assembly, just run
 objdump -d test > test_asm
 sudo nano test_asm
 ```
+
+## Modifying custom code
+
+Inside the **Main.cpp**, you will find the following code
+```c
+unsigned long long startTime = 0;
+unsigned long long endTime = 0;
+unsigned long long totalTime = 0;
+
+startTime = get_timestamp();
+
+//Do something. This code is just an example
+for (int i = 0; i < 99999; i++) {
+  int temp = (int)(i * i * i * i);
+}
+
+endTime = get_timestamp();
+
+unsigned long long executionTime = ((unsigned long long)(endTime - startTime));
+totalTime += executionTime;
+```
+
+As you can see, to measure the time (either in nanoseconds or CPU cycles), just add
+```c
+startTime = get_timestamp();
+```
+before your code, and 
+```c
+endTime = get_timestamp();
+```
+after your code. Then deduct the difference by
+```
+unsigned long long executionTime = ((unsigned long long)(endTime - startTime));
+```
+and add it to your global execution time variable as
+```
+totalTime += executionTime;
+```
+
+## Limitations
+
+Currently, this code works for some ARM CPUs (Cortex A72 in mind) either with 32 or 64 bits (Raspberry pi 3-4). In the future, it will be extended to Intel CPUs.
