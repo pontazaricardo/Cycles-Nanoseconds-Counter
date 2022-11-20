@@ -1,0 +1,22 @@
+﻿  Validating sources
+  Copying sources remotely to '192.168.247.1'
+  Invoking 'make', working directory: '/home/pi/projects/PapersProjects/Karatsuba/CyclesTimerCounter/CyclesTimerCounter/'
+  /usr/bin/g++ -Wall -Wextra -Wpedantic -Wredundant-decls -Wshadow -Wno-unused-result -mtune=native -mcpu=native -march=native -o test common/hal-cortexa.c Main.cpp -g -D __aarch64__ -lssl -lcrypto -D nanoseconds
+  
+  Main.cpp: In function ‘void hal_init_perfcounters(int, int)’:
+  Main.cpp:16:46: warning: unused parameter ‘do_reset’ [-Wunused-parameter]
+     16 | static inline void hal_init_perfcounters(int do_reset, int enable_divider)
+        |                                          ~~~~^~~~~~~~
+  Main.cpp:16:60: warning: unused parameter ‘enable_divider’ [-Wunused-parameter]
+     16 | static inline void hal_init_perfcounters(int do_reset, int enable_divider)
+        |                                                        ~~~~^~~~~~~~~~~~~~
+  Main.cpp: In function ‘int main()’:
+  Main.cpp:72:13: warning: unused variable ‘temp’ [-Wunused-variable]
+     72 |         int temp = (int)(i * i * i * i);
+        |             ^~~~
+  
+  Rebuild command not configured, skipping.
+  Invoking 'make', working directory: '/home/pi/projects/PapersProjects/Karatsuba/CyclesTimerCounter/CyclesTimerCounter/'
+  make: 'test' is up to date.
+  
+  Copying file '/home/pi/projects/PapersProjects/Karatsuba/CyclesTimerCounter/CyclesTimerCounter/test' to 'D:\Drive\Files\dropbox_new\Maestria NTU\Sistemas\21vo Semestre PhD\Karatsuba Paper\Cycles-Time counter\01\CyclesTimerCounter\bin\ARM64\Debug\test'
