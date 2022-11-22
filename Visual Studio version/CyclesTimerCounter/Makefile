@@ -6,16 +6,22 @@ HEADERS = common/hal.h
 MEASURETIME = nanoseconds
 
 ifeq "$(shell uname -m)" "aarch64"
-EXTRACONDITIONS = -D __aarch64__
+CPUTOUSE = -D __aarch64__
 endif
 
 ifeq "$(shell uname -m)" "armv7l"
 EXTRACONDITIONS = -mfpu=neon
+CPUTOUSE = -D __armv7l__
+endif
+
+ifeq "$(shell uname -m)" "x86_64"
+CPUTOUSE = -D __x8664__
+MEASURETIME = nanoseconds
 endif
 
 
 test: $(HEADERS) $(SOURCES)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(SOURCES) -g $(EXTRACONDITIONS) -lssl -lcrypto -D $(MEASURETIME)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(SOURCES) -g $(EXTRACONDITIONS) $(CPUTOUSE) -lssl -lcrypto -D $(MEASURETIME) -Wno-unknown-pragmas
 
 include common/make.mk
 
