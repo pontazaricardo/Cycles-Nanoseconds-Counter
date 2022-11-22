@@ -107,4 +107,4 @@ totalTime += executionTime;
 
 ## Limitations
 
-Currently, this code works for some ARM CPUs (Cortex A72 in mind) either with 32 or 64 bits (Raspberry pi 3-4). In the future, it will be extended to Intel CPUs.
+Originally this code only worked for Cortex A-72 CPUs. Now it works for Cortex A-72 and Intel CPUs, with the limitation that for Intel CPUs only the execution time (in nanoseconds) will be measured.
