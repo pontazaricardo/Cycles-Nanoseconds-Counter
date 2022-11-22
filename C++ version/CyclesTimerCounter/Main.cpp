@@ -20,10 +20,10 @@ static inline void hal_init_perfcounters(int do_reset, int enable_divider)
 
 #ifdef __aarch64__
     printf("%d, %d\n", do_reset, enable_divider);
-#else
+    #elseif __armv7l__
 
-    // in general enable all counters (including cycle counter)
-    int value = 1;
+        // in general enable all counters (including cycle counter)
+        int value = 1;
 
     // perform reset:  
     if (do_reset)
