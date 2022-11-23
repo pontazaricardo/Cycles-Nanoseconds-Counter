@@ -1,5 +1,5 @@
 # Cycles-Nanoseconds-Counter
-This project shows how to measure the performance of a C++ code by measuring the total execution time either in nanoseconds (ns) or CPU cycles (Tailored for Cortex-A72 32 bits and 64 bits).
+This project shows how to measure the performance of a C++ code by measuring the total execution time either in nanoseconds (ns) or CPU cycles. Currently its tailored for Cortex-A72 32 bits - 64 bits (both nanoseconds + CPU cycles), and Intel CPUs (nanoseconds).
 
 The CPU cycle counter section of this repository is hugely based on the repository of Matthias J. Kannwischer (@mkannwischer) and @vincentvbh: https://github.com/mupq/pqax
 
@@ -108,3 +108,12 @@ totalTime += executionTime;
 ## Limitations
 
 Originally this code only worked for Cortex A-72 CPUs. Now it works for Cortex A-72 and Intel CPUs, with the limitation that for Intel CPUs only the execution time (in nanoseconds) will be measured.
+
+## Warnings
+
+If you get an **Illegal instruction** error, its because you are trying to measure the CPU cycles without mounting the Kernel module. Just run
+```
+cd enable_ccr
+make
+make install
+```
