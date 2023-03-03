@@ -59,7 +59,7 @@ becoming
 $(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(SOURCES) -g $(EXTRACONDITIONS) -lssl -lcrypto -D $(MEASURETIME) -O3
 ```
 
-In some cases, depedning on your code, architecture and optimization flags, you can get CPU counts really small (or 0). When you compile with -O3, unsued sections of code and variables are skipped.
+In some cases, depedning on your code, architecture and optimization flags, you can get CPU counts really small (or 0). When you compile with -O3, unused sections of code and variables are skipped.
 
 If you want to check what it is happening in the assembly, just run
 ```
